@@ -1,0 +1,106 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  annotations:
+    cloudfunctions.googleapis.com/function-id: nextApp
+    run.googleapis.com/build-base-image: us-central1-docker.pkg.dev/serverless-runtimes/google-22-full/runtimes/nodejs22
+    run.googleapis.com/build-enable-automatic-updates: 'true'
+    run.googleapis.com/build-environment-variables: '{"GOOGLE_NODE_RUN_SCRIPTS":""}'
+    run.googleapis.com/build-function-target: nextApp
+    run.googleapis.com/build-image-uri: us-central1-docker.pkg.dev/emery-4e2ff/gcf-artifacts/emery--4e2ff__us--central1__next_app:version_1
+    run.googleapis.com/build-name: projects/399696477952/locations/us-central1/builds/7a75a26e-6856-4a07-95db-0ea865986266
+    run.googleapis.com/build-service-account: projects/emery-4e2ff/serviceAccounts/399696477952-compute@developer.gserviceaccount.com
+    run.googleapis.com/build-source-location: gs://gcf-v2-sources-399696477952-us-central1/nextApp/function-source.zip#1739653202285082
+    run.googleapis.com/client-name: gcloud
+    run.googleapis.com/client-version: 503.0.0
+    run.googleapis.com/custom-audiences: '["https://us-central1-emery-4e2ff.cloudfunctions.net/nextApp"]'
+    run.googleapis.com/ingress: all
+    run.googleapis.com/ingress-status: all
+    run.googleapis.com/operation-id: b72bdddf-356b-4073-8946-f28b23330ae9
+    run.googleapis.com/urls: '["https://nextapp-399696477952.us-central1.run.app","https://us-central1-emery-4e2ff.cloudfunctions.net/nextApp","https://nextapp-rorefbfgpq-uc.a.run.app"]'
+    serving.knative.dev/creator: service-399696477952@gcf-admin-robot.iam.gserviceaccount.com
+    serving.knative.dev/lastModifier: contact@javachrist.fr
+  creationTimestamp: '2025-02-15T21:01:42.061663Z'
+  generation: 2
+  labels:
+    cloud.googleapis.com/location: us-central1
+    goog-cloudfunctions-runtime: nodejs22
+    goog-drz-cloudfunctions-id: nextapp
+    goog-drz-cloudfunctions-location: us-central1
+    goog-managed-by: cloudfunctions
+  name: nextapp
+  namespace: '399696477952'
+  resourceVersion: AAYuNQpNK4c
+  selfLink: /apis/serving.knative.dev/v1/namespaces/399696477952/services/nextapp
+  uid: 3e02ba82-1db2-419f-b6ea-70b55f7d422d
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/maxScale: '100'
+        cloudfunctions.googleapis.com/trigger-type: HTTP_TRIGGER
+        run.googleapis.com/base-images: '{"worker":"us-central1-docker.pkg.dev/serverless-runtimes/google-22-full/runtimes/nodejs22"}'
+        run.googleapis.com/client-name: cli-firebase
+        run.googleapis.com/startup-cpu-boost: 'true'
+      labels:
+        run.googleapis.com/startupProbeType: Default
+      name: nextapp-00001-wuj
+    spec:
+      containerConcurrency: 80
+      containers:
+      - env:
+        - name: FIREBASE_CONFIG
+          value: '{"projectId":"emery-4e2ff","storageBucket":"emery-4e2ff.firebasestorage.app"}'
+        - name: GCLOUD_PROJECT
+          value: emery-4e2ff
+        - name: EVENTARC_CLOUD_EVENT_SOURCE
+          value: projects/emery-4e2ff/locations/us-central1/services/nextApp
+        - name: FUNCTION_TARGET
+          value: nextApp
+        - name: LOG_EXECUTION_ID
+          value: 'true'
+        image: us-central1-docker.pkg.dev/emery-4e2ff/gcf-artifacts/emery--4e2ff__us--central1__next_app:version_1
+        name: worker
+        ports:
+        - containerPort: 8080
+          name: http1
+        resources:
+          limits:
+            cpu: '1'
+            memory: 256Mi
+        startupProbe:
+          failureThreshold: 1
+          periodSeconds: 240
+          tcpSocket:
+            port: 8080
+          timeoutSeconds: 240
+      runtimeClassName: run.googleapis.com/linux-base-image-update
+      serviceAccountName: 399696477952-compute@developer.gserviceaccount.com
+      timeoutSeconds: 60
+  traffic:
+  - latestRevision: true
+    percent: 100
+status:
+  address:
+    url: https://nextapp-rorefbfgpq-uc.a.run.app
+  conditions:
+  - lastTransitionTime: '2025-02-15T21:02:02.783980Z'
+    status: 'True'
+    type: Ready
+  - severity: Info
+    status: 'True'
+    type: BaseImageValidated
+  - lastTransitionTime: '2025-02-15T21:02:01.472214Z'
+    status: 'True'
+    type: ConfigurationsReady
+  - lastTransitionTime: '2025-02-15T21:02:02.739222Z'
+    status: 'True'
+    type: RoutesReady
+  latestCreatedRevisionName: nextapp-00001-wuj
+  latestReadyRevisionName: nextapp-00001-wuj
+  observedGeneration: 2
+  traffic:
+  - latestRevision: true
+    percent: 100
+    revisionName: nextapp-00001-wuj
+  url: https://nextapp-rorefbfgpq-uc.a.run.app
