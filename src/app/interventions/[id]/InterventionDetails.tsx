@@ -63,7 +63,7 @@ export default function InterventionDetails() {
             dateIntervention: new Date().toISOString(),
             type: "depannage",
             statut: "planifiee",
-            description: "Création de l&apos;intervention",
+            description: "Création intervention",
             montantHT: 0,
             tva: 20,
             montantTTC: 0,
@@ -79,7 +79,7 @@ export default function InterventionDetails() {
           return;
         }
 
-        console.log("🔍 Chargement de l&apos;intervention:", id);
+        console.log("🔍 Chargement intervention:", id);
         const docRef = doc(db, "interventions", id);
         const docSnap = await getDoc(docRef);
 
@@ -98,7 +98,7 @@ export default function InterventionDetails() {
         if (error instanceof Error) {
           setError(error.message);
         } else {
-          setError("Une erreur inattendue s&apos;est produite");
+          setError("Une erreur inattendue");
         }
       } finally {
         setLoading(false);
@@ -216,8 +216,8 @@ export default function InterventionDetails() {
         });
       }
     } catch (error) {
-      console.error("Erreur lors de l&apos;upload:", error);
-      alert("Erreur lors de l&apos;upload. Veuillez réessayer.");
+      console.error("Erreur lors du chargement:", error);
+      alert("Erreur lors du chargement. Veuillez réessayer.");
     }
   };
 
@@ -318,7 +318,7 @@ export default function InterventionDetails() {
           {/* Type d'intervention */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Type d'intervention
+              Type d&apos;intervention
             </label>
             {editing ? (
               <select
@@ -330,6 +330,7 @@ export default function InterventionDetails() {
                 <option value="depannage">Dépannage</option>
                 <option value="installation">Installation</option>
                 <option value="maintenance">Maintenance</option>
+                <option value="divers">Divers</option>
               </select>
             ) : (
               <p className="p-2 bg-gray-50 rounded-lg">
@@ -385,7 +386,8 @@ export default function InterventionDetails() {
               onChange={handleChange}
               className="w-full p-4 border rounded-lg min-h-[150px] text-gray-700"
               rows={6}
-              placeholder="Décrivez l'intervention..."
+              placeholder="Décrivez l&apos;intervention..."
+
             />
           ) : (
             <div className="p-4 bg-gray-50 rounded-lg whitespace-pre-wrap text-gray-700 min-h-[100px]">

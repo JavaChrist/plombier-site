@@ -93,7 +93,7 @@ export default function ParametresPage() {
       await uploadBytes(logoRef, resizedBlob);
 
       // Récupérer l'URL
-      console.log("🔗 Récupération de l'URL...");
+      console.log("🔗 Récupération URL...");
       const logoUrl = await getDownloadURL(logoRef);
       console.log("✅ URL obtenue:", logoUrl);
 
@@ -126,7 +126,7 @@ export default function ParametresPage() {
       <h1 className="text-2xl font-bold mb-6">Paramètres</h1>
 
       <div className="bg-white rounded-lg shadow p-6">
-        <h2 className="text-xl font-semibold mb-4">Logo de l'entreprise</h2>
+        <h2 className="text-xl font-semibold mb-4">Logo entreprise</h2>
 
         {/* Prévisualisation du logo */}
         {currentLogo && (

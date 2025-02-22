@@ -123,7 +123,8 @@ export default function NouvelleIntervention() {
                 onChange={handleChange}
                 className="w-full p-2 border rounded"
                 rows={4}
-                placeholder="Description de l'intervention..."
+                placeholder="Décrivez l&apos;intervention..."
+
               />
             </div>
 
