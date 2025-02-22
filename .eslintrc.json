@@ -5,7 +5,7 @@
     "plugin:@typescript-eslint/recommended"
   ],
   "rules": {
-    "react/no-unescaped-entities": "off",
+    "react/no-unescaped-entities": 0,
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/no-explicit-any": "off"
   },

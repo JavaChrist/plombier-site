@@ -7,6 +7,8 @@ import Footer from "@/components/Footer";
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
+  preload: true,
+  fallback: ["system-ui", "arial"]
 });
 
 export const metadata: Metadata = {

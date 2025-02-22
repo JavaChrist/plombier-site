@@ -109,7 +109,7 @@ export default function ParametresPage() {
       alert("✅ Logo mis à jour avec succès !");
     } catch (error) {
       console.error("❌ Erreur détaillée:", error);
-      alert("❌ Erreur lors de la mise à jour du logo");
+      alert("❌ Erreur lors de l&apos;upload du logo");
     } finally {
       setUploading(false);
     }
