@@ -83,7 +83,7 @@ export default function ParametresPage() {
       setUploading(true);
 
       // Redimensionner l'image
-      console.log("📏 Redimensionnement de l'image...");
+      console.log("📏 Redimensionnement de l&apos;image...");
       const resizedBlob = await resizeImage(file);
 
       // Upload vers Firebase Storage
