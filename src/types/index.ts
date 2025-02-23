@@ -20,7 +20,7 @@ export interface Intervention {
   idClient: string;
   dateIntervention: string;
   type: "depannage" | "installation" | "entretien" | "autre";
-  statut: "planifiee" | "en_cours" | "terminee" | "annulee";
+  statut: "planifiee" | "en_cours" | "terminee" | "annulee" | "deuxieme";
   description: string;
   montantHT: number;
   tva: number;

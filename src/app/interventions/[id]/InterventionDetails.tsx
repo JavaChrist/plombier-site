@@ -273,8 +273,8 @@ export default function InterventionDetails() {
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold text-gray-800">
           {editing
-            ? "Modifier l&apos;intervention"
-            : "Détails de l&apos;intervention"}
+            ? "Modifier intervention"
+            : "Détails intervention"}
         </h1>
         <div className="space-x-4">
           {editing ? (
@@ -330,8 +330,8 @@ export default function InterventionDetails() {
                 <option value="depannage">Dépannage</option>
                 <option value="installation">Installation</option>
                 <option value="maintenance">Maintenance</option>
-                <option value="divers">Divers</option>
                 <option value="reparation">Réparation</option>
+                <option value="divers">Divers</option>
               </select>
             ) : (
               <p className="p-2 bg-gray-50 rounded-lg">
@@ -355,7 +355,7 @@ export default function InterventionDetails() {
                 <option value="planifiee">Planifiée</option>
                 <option value="en_cours">En cours</option>
                 <option value="terminee">Terminée</option>
-                <option value="annulee">Annulée</option>
+                <option value="annulee">Annulée</option>            
               </select>
             ) : (
               <span

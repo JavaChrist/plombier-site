@@ -191,6 +191,8 @@ export default function InterventionsList() {
                 cours,{" "}
                 {interventions.filter((i) => i.statut === "terminee").length}{" "}
                 terminée(s)
+                {interventions.filter((i) => i.statut === "terminee").length}{" "}
+                annulé(s)
               </p>
             </div>
           </div>
