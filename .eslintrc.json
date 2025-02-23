@@ -4,5 +4,10 @@
     "react/no-unescaped-entities": "off",
     "no-console": "warn"
   }
+
+  "rules": {
+  "no-console": "off"
+}
+
 }
 

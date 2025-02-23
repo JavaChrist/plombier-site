@@ -3,12 +3,13 @@ import ClientDetails from './ClientDetails';
 import Link from 'next/link';
 
 interface PageProps {
-  params: { id: string };
+  params: { id: string } | Promise<{ id: string }>;
 }
 
 async function getPageParams(params: PageProps['params']) {
+  const resolvedParams = await Promise.resolve(params); // Gère le cas d'une promesse
   return {
-    id: params.id
+    id: resolvedParams.id
   };
 }
 
