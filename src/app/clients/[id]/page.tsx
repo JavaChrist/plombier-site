@@ -2,7 +2,15 @@ import { Suspense } from 'react';
 import ClientDetails from './ClientDetails';
 import Link from 'next/link';
 
-export default function ClientPage({ params }: { params: { id: string } }) {
+type PageProps = {
+  params: { id: string };
+};
+
+export default function ClientPage({ params }: PageProps) {
+  if (!params || !params.id) {
+    return <div>Erreur : ID de client manquant</div>;
+  }
+
   return (
     <div className="container mx-auto px-4">
       <Suspense fallback={
