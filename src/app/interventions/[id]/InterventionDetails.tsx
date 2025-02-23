@@ -331,6 +331,7 @@ export default function InterventionDetails() {
                 <option value="installation">Installation</option>
                 <option value="maintenance">Maintenance</option>
                 <option value="divers">Divers</option>
+                <option value="reparation">Réparation</option>
               </select>
             ) : (
               <p className="p-2 bg-gray-50 rounded-lg">
